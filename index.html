@@ -10,10 +10,10 @@
             function getRandomInt(min,max) {
                 return Math.floor(Math.random() * (max-min) + min);
             }
-            let int = getRandomInt(1,4);
-            console.log(int);
+
             /*Assign rock, paper, scissors to that value. */
             function getComputerChoice() {
+                let int = getRandomInt(1,4);
                 if (int == 1) {
                     return "rock";
                 } else if (int == 2) {
@@ -26,36 +26,105 @@
                 /* Create a function that compares the values of player and computer and decides who wins */
                 function playRound(playerSelection,computerSelection) {
                     let player = playerSelection.toLowerCase();
-                    
                     switch(true) {
                         case player == 'rock' && computerSelection == 'scissors':
-                            return "Rock beats Paper, you win!";
+                            return 'win';
                             break;
                         case player == 'rock' && computerSelection == 'paper':
-                            return 'Paper beats Rock, you lose!"';
+                            return 'lose';
                             break;
                         case player == 'rock' && computerSelection == 'rock':
-                            return 'It is a tie, play again?';
+                            return 'tie';
                             break; 
                         case player == 'scissors' && computerSelection == 'paper':
-                            return 'Scissor beats Paper, you win!';
+                            return 'win';
                             break;
                         case player == 'scissors' && computerSelection == 'rock':
-                            return 'Rock beats Scissors, you lose!';
+                            return 'lose';
                             break;
                         case player == 'scissors' && computerSelection == 'scissors':
-                            return 'It is a tie, play again?';
-                            break;              
+                            return 'tie';
+                            break;        
+                        case player == 'paper' && computerSelection == 'scissors':
+                            return 'lose';
+                            break;
+                        case player == 'paper' && computerSelection == 'rock':
+                            return 'win';
+                            break;
+                        case player = 'paper' && computerSelection == 'paper':
+                            return 'tie';
+                            break;      
                     }
                 }
-                const playerSelection = 'Scissors';
-                let computerSelection = getComputerChoice();
-                let result = playRound(playerSelection,computerSelection);
-                console.log(result);
+                
+
 
             /*Create a user Prompt for their choice
-
+            
             Compare the values between the user and computer to deicide who wins */
+                function score(result) {
+                    if (result == 'win') {
+                        console.log('You won the round!');
+                        return win ++;
+                    } else if (result == 'lose') {
+                        console.log('You lost the round!');
+                        return loss ++;   
+                    } else {
+                        console.log('You tied!');
+                    }
+                }
+                let win = 0;
+                let loss= 0;
+
+                function game() {
+
+                    let playerChoiceOne = prompt('Rock, Paper, or Scissors?');
+                    let computerSelectionOne = getComputerChoice();
+                    let roundOne = playRound(playerChoiceOne,computerSelectionOne);
+                    let roundOneResult = score(roundOne);
+                    console.log(`You have ${win} wins and ${loss} losses`);
+
+
+                    let playerChoiceTwo = prompt('Rock, Paper, or Scissors?');
+                    let computerSelectionTwo = getComputerChoice();
+                    let roundTwo = playRound(playerChoiceTwo,computerSelectionTwo);
+                    let roundTwoResult = score(roundTwo);
+                    console.log(`You have ${win} wins and ${loss} losses`);
+
+
+                    let playerChoiceThree = prompt('Rock, Paper, or Scissors?');
+                    let computerSelectionThree = getComputerChoice();
+                    let roundThree = playRound(playerChoiceThree,computerSelectionThree);
+                    let roundThreeResult = score(roundThree);
+                    console.log(`You have ${win} wins and ${loss} losses`);
+
+
+                    let playerChoiceFour = prompt('Rock, Paper, or Scissors?');
+                    let computerSelectionFour = getComputerChoice();
+                    let roundFour = playRound(playerChoiceFour,computerSelectionFour);
+                    let roundFourResult = score(roundFour);
+                    console.log(`You have ${win} wins and ${loss} losses`);
+
+
+                    let playerChoiceFive = prompt('Rock, Paper, or Scissors?');
+                    let computerSelectionFive = getComputerChoice();
+                    let roundFive = playRound(playerChoiceFive,computerSelectionFive);
+                    let roundFiveResult = score(roundFive);
+                    console.log(`You have ${win} wins and ${loss} losses`);
+
+
+                    if (win > loss) {
+                        console.log(`You won with a score of ${win} wins to ${loss} losses!`);
+                    } else if (loss > win) {
+                        console.log(`You lost with a score of ${loss} losses to ${win} wins!`);
+                    } else {
+                        console.log(`You tied with a score of ${win} wins to ${loss} losses`)
+                    }
+
+
+                }
+                console.log(game());
+
         </script>
     </body>
 </html>
