@@ -10,10 +10,9 @@
             function getRandomInt(min,max) {
                 return Math.floor(Math.random() * (max-min) + min);
             }
-
             let int = getRandomInt(1,4);
             console.log(int);
-
+            /*Assign rock, paper, scissors to that value. */
             function getComputerChoice() {
                 if (int == 1) {
                     return "rock";
@@ -22,11 +21,33 @@
                 } else {
                     return "scissors";
                 }
+                }  
+                /*Player's selection*/
+                /* Create a function that compares the values of player and computer and decides who wins */
+                function playRound(playerSelection,computerSelection) {
+                    let player = playerSelection.toLowerCase();
+                    switch(true) {
+                        case player == 'rock' && computerSelection == 'scissors':
+                            return "Rock beats Paper, you win!";
+                            break;
+                        case player == 'rock' && computerSelection == 'paper':
+                            return 'Paper beats Rock, you lose!"';
+                            break;
+                        case player == 'rock' && computerSelection == 'rock':
+                            return computerSelection = getComputerChoice();
+                            break;
+                            
+                    }
                 }
-                console.log(getComputerChoice());
+                let computerSelection = 'rock';
+                const playerSelection = 'rock';
+                let result = playRound(playerSelection,computerSelection);
+                console.log(result);
+
+
             
-            /*Assign rock, paper, scissors to that value.
-            Ask the user for a prompt to get rock paper or scissors
+            /*Create a user Prompt for their choice
+
             Compare the values between the user and computer to deicide who wins */
         </script>
     </body>
