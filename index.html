@@ -26,6 +26,7 @@
                 /* Create a function that compares the values of player and computer and decides who wins */
                 function playRound(playerSelection,computerSelection) {
                     let player = playerSelection.toLowerCase();
+                    
                     switch(true) {
                         case player == 'rock' && computerSelection == 'scissors':
                             return "Rock beats Paper, you win!";
@@ -34,18 +35,24 @@
                             return 'Paper beats Rock, you lose!"';
                             break;
                         case player == 'rock' && computerSelection == 'rock':
-                            return computerSelection = getComputerChoice();
+                            return 'It is a tie, play again?';
+                            break; 
+                        case player == 'scissors' && computerSelection == 'paper':
+                            return 'Scissor beats Paper, you win!';
                             break;
-                            
+                        case player == 'scissors' && computerSelection == 'rock':
+                            return 'Rock beats Scissors, you lose!';
+                            break;
+                        case player == 'scissors' && computerSelection == 'scissors':
+                            return 'It is a tie, play again?';
+                            break;              
                     }
                 }
-                let computerSelection = 'rock';
-                const playerSelection = 'rock';
+                const playerSelection = 'Scissors';
+                let computerSelection = getComputerChoice();
                 let result = playRound(playerSelection,computerSelection);
                 console.log(result);
 
-
-            
             /*Create a user Prompt for their choice
 
             Compare the values between the user and computer to deicide who wins */
