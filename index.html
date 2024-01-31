@@ -5,6 +5,7 @@
         <title>Rock Paper Scissors</title>
     </head>
     <body>
+        <div></div>
         <script>
             /* Have computer Generate a random number between 1 and 3 */
             function getRandomInt(min,max) {
@@ -85,12 +86,25 @@
                 div.appendChild(rockButton);
                 div.appendChild(paperButton);
                 div.appendChild(scissorsButton);
-                /*rockButton.addEventListener('click', ()=> {
+                rockButton.addEventListener('click', ()=> {
                     let playerChoice = 'rock';
                     let computerChoice = getComputerChoice();
                     console.log(playRound(playerChoice,computerChoice));
 
                 });
+                paperButton.addEventListener('click', ()=> {
+                    let playerChoice = 'paper';
+                    let computerChoice = getComputerChoice();
+                    console.log(playRound(playerChoice,computerChoice));
+
+                });
+                scissorsButton.addEventListener('click', ()=> {
+                    let playerChoice = 'scissors';
+                    let computerChoice = getComputerChoice();
+                    console.log(playRound(playerChoice,computerChoice));
+
+                });
+
 
                 /*
                 let win = 0;
