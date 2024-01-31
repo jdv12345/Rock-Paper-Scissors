@@ -73,6 +73,26 @@
                         console.log('You tied!');
                     }
                 }
+
+                /* Create three buttons for rock paper and scissors */
+                const div = document.querySelector('div');
+                const rockButton = document.createElement('button');
+                const paperButton = document.createElement('button');
+                const scissorsButton = document.createElement('button');
+                rockButton.textContent = 'Rock';
+                paperButton.textContent = 'Paper';
+                scissorsButton.textContent = 'Scissors';
+                div.appendChild(rockButton);
+                div.appendChild(paperButton);
+                div.appendChild(scissorsButton);
+                /*rockButton.addEventListener('click', ()=> {
+                    let playerChoice = 'rock';
+                    let computerChoice = getComputerChoice();
+                    console.log(playRound(playerChoice,computerChoice));
+
+                });
+
+                /*
                 let win = 0;
                 let loss= 0;
 
@@ -124,7 +144,7 @@
 
                 }
                 console.log(game());
-
+                */
         </script>
     </body>
 </html>
