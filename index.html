@@ -25,36 +25,32 @@
                 }  
                 /*Player's selection*/
                 /* Create a function that compares the values of player and computer and decides who wins */
-                function playRound(playerSelection,computerSelection) {
+                let playerScore = 0;
+                let computerScore = 0;
+                let round = '';
+                let ties = 0;
+                function playRound(playerSelection) {
+                    let computerSelection = getComputerChoice();
                     let player = playerSelection.toLowerCase();
-                    switch(true) {
-                        case player == 'rock' && computerSelection == 'scissors':
-                            return 'win';
-                            break;
-                        case player == 'rock' && computerSelection == 'paper':
-                            return 'lose';
-                            break;
-                        case player == 'rock' && computerSelection == 'rock':
-                            return 'tie';
-                            break; 
-                        case player == 'scissors' && computerSelection == 'paper':
-                            return 'win';
-                            break;
-                        case player == 'scissors' && computerSelection == 'rock':
-                            return 'lose';
-                            break;
-                        case player == 'scissors' && computerSelection == 'scissors':
-                            return 'tie';
-                            break;        
-                        case player == 'paper' && computerSelection == 'scissors':
-                            return 'lose';
-                            break;
-                        case player == 'paper' && computerSelection == 'rock':
-                            return 'win';
-                            break;
-                        case player = 'paper' && computerSelection == 'paper':
-                            return 'tie';
-                            break;      
+
+                    if ((player == 'rock') && (computerSelection == 'scissors')) {
+                        return 'win';
+                    } else if ((player == 'rock') && (computerSelection == 'paper')) {
+                        return 'lose';
+                    } else if ((player == 'rock') && (computerSelection == 'rock')) {
+                        return 'tie';
+                    } else if ((player == 'paper') && (computerSelection == 'rock')) {
+                        return 'win';
+                    } else if ((player == 'paper') && (computerSelection == 'scissors')) {
+                        return 'lose';
+                    } else if ((player == 'paper') && (computerSelection == 'paper')) {
+                        return 'tie';
+                    } else if ((player == 'scissors') && (computerSelection == 'paper')) {
+                        return 'win';
+                    } else if ((player == 'scissors') && (computerSelection == 'rock')) {
+                        return 'lose';
+                    } else  {
+                        return 'tie';
                     }
                 }
                 
@@ -86,24 +82,20 @@
                 div.appendChild(rockButton);
                 div.appendChild(paperButton);
                 div.appendChild(scissorsButton);
+
                 rockButton.addEventListener('click', ()=> {
                     let playerChoice = 'rock';
-                    let computerChoice = getComputerChoice();
-                    console.log(playRound(playerChoice,computerChoice));
-
+                    console.log(playRound(playerChoice));
                 });
                 paperButton.addEventListener('click', ()=> {
                     let playerChoice = 'paper';
-                    let computerChoice = getComputerChoice();
-                    console.log(playRound(playerChoice,computerChoice));
-
+                    console.log(playRound(playerChoice));
                 });
                 scissorsButton.addEventListener('click', ()=> {
                     let playerChoice = 'scissors';
-                    let computerChoice = getComputerChoice();
-                    console.log(playRound(playerChoice,computerChoice));
-
+                    console.log(playRound(playerChoice));
                 });
+
 
 
                 /*
