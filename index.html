@@ -27,8 +27,32 @@
                 /* Create a function that compares the values of player and computer and decides who wins */
                 let playerScore = 0;
                 let computerScore = 0;
-                let round = '';
                 let ties = 0;
+                let round = '';
+
+                function score(result) {
+                    if ((playerScore && computerScore) < 5) {
+
+                        if (result == 'win') {
+                        playerScore++;
+                        round = `You won the round! The current score is: You:${playerScore} Computer:${computerScore}`;
+                        return round;
+                    }   else if (result == 'lose') {
+                        computerScore++;
+                        round = `You lost the round! The current score is: You:${playerScore} Computer:${computerScore}`;
+                        return round;
+                    }   else {
+                        round = `You tied the round! The current score is: You:${playerScore} Computer:${computerScore}`;
+                        return round;
+                    }
+                    } else if (playerScore >= 5) {
+                        round = `You won with a score of ${playerScore} to ${computerScore}`;
+                        return round;
+                    } else {
+                        round = `You lost with a score of ${playerScore} to ${computerScore}`;
+                    }
+
+                }
                 function playRound(playerSelection) {
                     let computerSelection = getComputerChoice();
                     let player = playerSelection.toLowerCase();
@@ -51,25 +75,16 @@
                         return 'lose';
                     } else  {
                         return 'tie';
-                    }
                 }
-                
+
+                }
 
 
+                //display results 
             /*Create a user Prompt for their choice
             
             Compare the values between the user and computer to deicide who wins */
-                function score(result) {
-                    if (result == 'win') {
-                        console.log('You won the round!');
-                        return win ++;
-                    } else if (result == 'lose') {
-                        console.log('You lost the round!');
-                        return loss ++;   
-                    } else {
-                        console.log('You tied!');
-                    }
-                }
+
 
                 /* Create three buttons for rock paper and scissors */
                 const div = document.querySelector('div');
@@ -82,19 +97,19 @@
                 div.appendChild(rockButton);
                 div.appendChild(paperButton);
                 div.appendChild(scissorsButton);
-
                 rockButton.addEventListener('click', ()=> {
-                    let playerChoice = 'rock';
-                    console.log(playRound(playerChoice));
+                    console.log(score(playRound('rock')));
                 });
                 paperButton.addEventListener('click', ()=> {
-                    let playerChoice = 'paper';
-                    console.log(playRound(playerChoice));
+                    console.log(score(playRound('paper')));
                 });
                 scissorsButton.addEventListener('click', ()=> {
-                    let playerChoice = 'scissors';
-                    console.log(playRound(playerChoice));
+                    console.log(score(playRound('scissors')));
                 });
+                const results = document.createElement('div');
+                results.textContent = `Round results: `;
+                div.appendChild(results);
+
 
 
 
